@@ -1,9 +1,7 @@
-package com.example.application.backend.users.user.callable.user.with_phone;
+package com.example.application.backend.users.user.callable.user;
 
 import com.example.application.backend.users.user.Profile;
 import com.example.application.backend.users.user.callable.CallAlgorithm;
-import com.example.application.backend.users.user.callable.user.UserCallableImpl;
-import lombok.AllArgsConstructor;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -11,15 +9,12 @@ import java.util.function.Consumer;
 import static com.example.application.backend.users.user.callable.CallAlgorithm.PHONE;
 
 /**
- * @author snd00 created at 18.11.2023
+ * @author snd00 created at 19.11.2023
  * @project usersrepository
  */
-public class UserPhoned extends UserCallableImpl {
-    private final String phone;
-
-    public UserPhoned(Profile profile, String phone) {
-        super(profile);
-        this.phone = phone;
+public final class UserWithPhone extends UserCallableImpl {
+    public UserWithPhone(Profile profile, ContactInfoCard contactCard) {
+        super(profile, contactCard);
     }
 
     @Override
@@ -29,6 +24,6 @@ public class UserPhoned extends UserCallableImpl {
 
     @Override
     public void call(CallAlgorithm howReach, Consumer<String> callResult) {
-        if(howReach == PHONE) callResult.accept(phone);
+        if(howReach == PHONE) super.supplyPhone(callResult);
     }
 }

@@ -5,5 +5,5 @@ package com.example.application.backend.users.user.callable;
  * @project usersrepository
  */
 public enum CallAlgorithm {
-    PHONE, EMAIL, MAIL
+    PHONE, EMAIL
 }
