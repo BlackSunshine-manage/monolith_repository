@@ -5,6 +5,6 @@ package com.example.application.backend.users;
  * @project usersrepository
  */
 public interface User {
-    final class UserFake implements User {
+    public class UserFake implements User {
     }
 }
